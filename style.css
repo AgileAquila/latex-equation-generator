@@ -1,0 +1,243 @@
+@font-face {
+    font-family: caecilia;
+    src: url(Caecilia-font.ttf);
+}
+
+:root{
+    --bg-color: #ffffff;
+    --button-color: #0077b6;
+    --button-shadow-color: #023d8a88;
+    --text-color: #ffffff;
+    --border-color: #342E37;
+    --select-color: #48cae4;
+    --select-shadow-color: #00b4d865;
+}
+
+body{
+    background-color: var(--bg-color);
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    -khtml-user-select:none;
+    user-select:none;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 108px;
+    background-color: #023e8a;
+}
+
+.title h1{
+    font-weight: bolder;
+    font-size: 28px;
+    color: white;
+    text-shadow: 0px 0px 10px #03045e;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.types_table{
+    position: relative;
+    top: 108px;
+    height: 237px;
+    display: flex;
+    justify-content: center;
+}
+
+.types_container{
+    display: table;
+}
+
+.types{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.types ul{
+    justify-content: center;
+}
+
+li{
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    margin-right: 16px;
+    background: var(--button-color);
+    box-shadow: 2px 2px 5px var(--button-shadow-color);
+    transition: all 0.1s ease-out;
+    overflow: hidden;
+}
+
+li:hover{
+    background: var(--select-color);
+    box-shadow: 2px 2px 5px var(--select-shadow-color);
+}
+
+li div{
+    padding-top: 16px;
+    color: var(--text-color);
+    font-size: 22px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #00000060;
+}
+
+.child{
+    z-index: 9998;
+    display: flex;
+    position: fixed;
+    top: -400px;
+    left: 0;
+    width: 100vw;
+    height: 0px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.75s ease-out;
+    border-bottom: #023e8a solid 12px;
+    overflow: scroll;
+    justify-content: center;
+}
+
+.child::-webkit-scrollbar{
+    display: none;
+}
+
+.child_container{
+    display: table;
+    padding: 0;
+    height: 237px;
+    width: 1000px;
+}
+
+.child_contents{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.child ul li{
+    cursor: pointer;
+}
+
+.types ul li:hover .child{
+    top: 92px;
+    height: 237px;
+}
+
+.inputs{
+    display: flex;
+    position: absolute;
+    width: 100vw;
+    top: 97px;
+    left: 0;
+    justify-content:space-evenly;
+    margin-top: 248px;
+    padding-top: 20px;
+    padding-bottom: 42px;
+    background-color: #023e8a;
+    font-size: 28px;
+}
+
+.inputs div .subtitle{
+    margin-bottom: 4px;
+    font-size: 18px;
+    color: white;
+}
+
+.inputs div .input, .output{
+    display: flex;
+    width: 40vw;
+    height: 375px;
+    border-radius: 7px;
+    border: none;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.input::-webkit-scrollbar, .output::-webkit-scrollbar{
+    display: none;
+}
+
+.input_container{
+    padding: 8px 16px;
+    display: table;
+}
+
+#input_contents{
+    display: table-cell;
+}
+
+.cursor{
+    display:inline-flex;
+    width: 2px;
+    height: 42px;
+    margin-bottom: -12px;
+    cursor: text;
+}
+
+@keyframes cursor_blink{
+    0%{
+        background-color: #ff0062;
+    }
+    42%{
+        background-color: #ff0062;
+    }
+    50%{
+        background-color: #ffffff;
+    }
+    92%{
+        background-color: #ffffff;
+    }
+    100%{
+        background-color: #ff0062;
+    }
+}
+
+@-webkit-keyframes cursor_blink{
+    0%{
+        background-color: #ff0062;
+    }
+    42%{
+        background-color: #ff0062;
+    }
+    50%{
+        background-color: #ffffff;
+    }
+    92%{
+        background-color: #ffffff;
+    }
+    100%{
+        background-color: #ff0062;
+    }
+}
+
+#active{
+    animation: cursor_blink 1.2s infinite linear;
+    -webkit-animation: cursor_blink 1.2s infinite linear;
+}
+
+.math_container{
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-bottom: 8px;
+}
+
+mjx-container[jax="CHTML"][display="true"]{
+    display: inline-flex !important;
+    cursor: text;
+}
